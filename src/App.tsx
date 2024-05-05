@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import AllTasks from "./pages";
+import Important from './pages/Important';
+import Completed from './pages/Completed';
+import Incomplete from './pages/Incomplete';
+import {Route, Routes} from 'react-router-dom';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className='layout'>
+        <Sidebar />
+        <Routes>
+          <Route path="/" element={<AllTasks/>} />
+          <Route path="/important" element={<Important/>} />
+          <Route path="/completed" element={<Completed/>} />
+          <Route path="/incomplete" element={<Incomplete/>} />
+        </Routes>
+        
+        </div>
     </div>
   );
 }
